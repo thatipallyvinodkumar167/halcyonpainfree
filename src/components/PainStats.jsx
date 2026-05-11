@@ -32,37 +32,37 @@ export default function PainStats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const stats = [
-    { 
-        value: useCounter(isInView ? 30 : 0), 
-        suffix: "%", 
-        title: "Global Burden",
-        text: "Global population suffering from pain", 
-        icon: <PublicIcon sx={{ fontSize: 32 }}/>,
-        accent: "secondary.main"
+    {
+      value: useCounter(isInView ? 30 : 0),
+      suffix: "%",
+      title: "Global Burden",
+      text: "Global population suffering from pain",
+      icon: <PublicIcon sx={{ fontSize: 32 }} />,
+      accent: "secondary.main"
     },
-    { 
-        value: useCounter(isInView ? 19.3 : 0), 
-        suffix: "%", 
-        title: "National Crisis",
-        text: "Indians living with chronic pain", 
-        icon: <HealthAndSafetyIcon sx={{ fontSize: 32 }}/>,
-        accent: "#C2185B"
+    {
+      value: useCounter(isInView ? 19.3 : 0),
+      suffix: "%",
+      title: "National Crisis",
+      text: "Indians living with chronic pain",
+      icon: <HealthAndSafetyIcon sx={{ fontSize: 32 }} />,
+      accent: "#C2185B"
     },
-    { 
-        value: useCounter(isInView ? 71.2 : 0), 
-        suffix: "%", 
-        title: "The Care Gap",
-        text: "Patients only consulting general physicians", 
-        icon: <ErrorOutlineIcon sx={{ fontSize: 32 }}/>,
-        accent: "#C2185B"
+    {
+      value: useCounter(isInView ? 71.2 : 0),
+      suffix: "%",
+      title: "The Care Gap",
+      text: "Patients only consulting general physicians",
+      icon: <ErrorOutlineIcon sx={{ fontSize: 32 }} />,
+      accent: "#C2185B"
     },
-    { 
-        value: useCounter(isInView ? 4.8 : 0), 
-        suffix: "%", 
-        title: "Specialized Access",
-        text: "Patients seeing pain specialists", 
-        icon: <VerifiedUserIcon sx={{ fontSize: 32 }}/>,
-        accent: "secondary.main"
+    {
+      value: useCounter(isInView ? 4.8 : 0),
+      suffix: "%",
+      title: "Specialized Access",
+      text: "Patients seeing pain specialists",
+      icon: <VerifiedUserIcon sx={{ fontSize: 32 }} />,
+      accent: "secondary.main"
     },
   ];
 
@@ -70,9 +70,9 @@ export default function PainStats() {
     <Box
       ref={ref}
       sx={{
-        pt: { xs: 8, md: 10 }, 
-        pb: { xs: 8, md: 10 }, 
-        background: "linear-gradient(180deg, #FFFFFF 0%, #fbf6f8 100%)", 
+        pt: { xs: 8, md: 10 },
+        pb: { xs: 8, md: 10 },
+        background: "linear-gradient(180deg, #FFFFFF 0%, #fbf6f8 100%)",
         color: "primary.main",
         position: "relative",
         overflow: "hidden",
@@ -89,10 +89,10 @@ export default function PainStats() {
           zIndex: 0,
         }}
       />
-      
+
       <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
         <Stack spacing={8} alignItems="center">
-          
+
           {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -101,31 +101,31 @@ export default function PainStats() {
             style={{ textAlign: 'center', maxWidth: '1000px' }}
           >
             <Stack spacing={3} alignItems="center">
-              <Box sx={{ 
-                display: "inline-flex", 
-                alignItems: "center", 
-                gap: 1, 
-                backgroundColor: 'rgba(194, 24, 91, 0.05)', 
-                px: 2, 
-                py: 0.5, 
-                borderRadius: '100px', 
-                border: '1px solid rgba(194, 24, 91, 0.1)' 
+              <Box sx={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 1,
+                backgroundColor: 'rgba(194, 24, 91, 0.05)',
+                px: 2,
+                py: 0.5,
+                borderRadius: '100px',
+                border: '1px solid rgba(194, 24, 91, 0.1)'
               }}>
                 <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 1.5, color: "#C2185B", fontSize: '0.75rem' }}>
                   CLINICAL INSIGHTS
                 </Typography>
               </Box>
-              
+
               <Typography variant="h2" sx={{ fontWeight: 900, color: "primary.main", fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
                 The Reality of <span style={{ color: "#1CB5B0" }}>Chronic Pain</span>
               </Typography>
-              
+
               <Typography variant="body1" sx={{ color: "text.secondary", fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 'none', width: '100%' }}>
                 Pain is more than just a symptom; it's a global health crisis that requires specialized interventional care.
               </Typography>
             </Stack>
           </motion.div>
-          
+
           {/* Stats Grid Section */}
           <Box sx={{ width: '100%' }}>
             <Grid container spacing={3} justifyContent="center">
@@ -165,23 +165,23 @@ export default function PainStats() {
                       }}
                     >
                       {/* Top Accent Line */}
-                      <Box sx={{ 
-                        position: 'absolute', 
-                        top: 0, 
-                        left: 0, 
-                        right: 0, 
-                        height: 5, 
+                      <Box sx={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: 5,
                         background: `linear-gradient(90deg, ${item.accent}, #fff)`,
-                        opacity: 0.8 
+                        opacity: 0.8
                       }} />
 
-                      <Box sx={{ 
-                        width: 48, 
-                        height: 48, 
-                        borderRadius: "16px", 
-                        backgroundColor: `${item.accent}15`, 
-                        display: "flex", 
-                        alignItems: "center", 
+                      <Box sx={{
+                        width: 48,
+                        height: 48,
+                        borderRadius: "16px",
+                        backgroundColor: `${item.accent}15`,
+                        display: "flex",
+                        alignItems: "center",
                         justifyContent: "center",
                         color: item.accent
                       }}>
@@ -189,8 +189,8 @@ export default function PainStats() {
                       </Box>
 
                       <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                        <Typography variant="h3" sx={{ 
-                          fontWeight: 900, 
+                        <Typography variant="h3" sx={{
+                          fontWeight: 900,
                           color: "primary.main",
                           fontSize: "2.2rem",
                           lineHeight: 1,
@@ -203,7 +203,7 @@ export default function PainStats() {
                         <Typography variant="subtitle1" sx={{ fontWeight: 900, color: "primary.main", mb: 1, fontSize: "1.1rem", lineHeight: 1.2 }}>
                           {item.title}
                         </Typography>
-                        
+
                         <Typography variant="body2" sx={{ color: "text.secondary", fontSize: "0.85rem", lineHeight: 1.6, fontWeight: 500, minHeight: '3.2em' }}>
                           {item.text}
                         </Typography>

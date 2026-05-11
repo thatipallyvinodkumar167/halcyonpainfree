@@ -62,16 +62,16 @@ function MilestoneCard({ item }) {
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8 }}
-      style={{ height: '100%' }}
+      transition={{ duration: 0.8, delay: 0.1 }}
+      style={{ height: '100%', width: '100%', display: 'flex' }}
     >
       <Paper
         elevation={0}
         sx={{
-          p: 4,
+          p: { xs: 2.5, md: 4 },
           height: { xs: 220, md: '100%' },
-          width: { xs: '90%', md: '100%' },
-          mx: 'auto',
+          width: 350,
+          mx: { xs: 0, md: 'auto' },
           borderRadius: "32px",
           backgroundColor: "rgba(255, 255, 255, 0.7)",
           backdropFilter: "blur(10px)",
@@ -92,6 +92,7 @@ function MilestoneCard({ item }) {
           }
         }}
       >
+        {/* Top Accent Line */}
         <Box sx={{
           position: 'absolute',
           top: 0,
@@ -115,7 +116,7 @@ function MilestoneCard({ item }) {
           {item.icon}
         </Box>
 
-        <Box>
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
           <Typography variant="h3" sx={{
             fontWeight: 900,
             color: "primary.main",
@@ -127,9 +128,15 @@ function MilestoneCard({ item }) {
             <span style={{ fontSize: "1rem", opacity: 0.6, marginLeft: '2px' }}>{item.suffix}</span>
           </Typography>
 
-          <Typography variant="subtitle1" sx={{ fontWeight: 900, color: "primary.main", fontSize: "1.1rem", lineHeight: 1.2 }}>
+          <Typography variant="subtitle1" sx={{ fontWeight: 900, color: "primary.main", mb: 1, fontSize: "1.1rem", lineHeight: 1.2 }}>
             {item.label}
           </Typography>
+
+          {item.text && (
+            <Typography variant="body2" sx={{ color: "text.secondary", fontSize: "0.85rem", lineHeight: 1.6, fontWeight: 500, minHeight: '3.2em' }}>
+              {item.text}
+            </Typography>
+          )}
         </Box>
       </Paper>
     </motion.div>
@@ -231,8 +238,8 @@ export default function AboutPage() {
       {/* ====== MILESTONES SECTION ====== */}
       <Box sx={{ background: "linear-gradient(180deg, #fbf6f8 0%, #FFFFFF 100%)", py: { xs: 8, md: 10 }, position: "relative", overflow: "hidden" }}>
         <Box sx={{ position: "absolute", inset: 0, opacity: 0.05, backgroundImage: `radial-gradient(#0F1E5A 0.5px, transparent 0.5px)`, backgroundSize: '24px 24px', zIndex: 0 }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <Grid container spacing={4} justifyContent="center">
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1, px: { xs: 0, md: 3 } }}>
+          <Grid container spacing={{ xs: 1, md: 4 }} justifyContent="center">
             {milestones.map((item, index) => (
               <Grid item xs={12} sm={6} md={3} key={index}>
                 <MilestoneCard item={item} />
