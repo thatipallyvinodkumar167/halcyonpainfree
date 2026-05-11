@@ -130,7 +130,7 @@ export default function PainStats() {
           <Box sx={{ width: '100%' }}>
             <Grid container spacing={3} justifyContent="center">
               {stats.map((item, index) => (
-                <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index} sx={{ display: 'flex' }}>
+                <Grid item xs={12} sm={6} md={3} key={index} sx={{ display: 'flex' }}>
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}

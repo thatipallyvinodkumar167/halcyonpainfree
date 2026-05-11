@@ -234,7 +234,7 @@ export default function AboutPage() {
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Grid container spacing={4} justifyContent="center">
             {milestones.map((item, index) => (
-              <Grid item size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+              <Grid item xs={12} sm={6} md={3} key={index}>
                 <MilestoneCard item={item} />
               </Grid>
             ))}
