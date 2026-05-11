@@ -130,19 +130,19 @@ export default function PainStats() {
           <Box sx={{ width: '100%' }}>
             <Grid container spacing={3} justifyContent="center">
               {stats.map((item, index) => (
-                <Grid item xs={12} sm={3} md={3} key={index}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index} sx={{ display: 'flex' }}>
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.8, delay: index * 0.1 }}
-                    style={{ height: '100%', width: '100%' }}
+                    style={{ height: '100%', width: '100%', display: 'flex' }}
                   >
                     <Paper
                       elevation={0}
                       sx={{
                         p: 4,
-                        width: { xs: '320px', sm: '100%' },
-                        height: { xs: 260, sm: '100%' },
+                        width: "100%",
+                        height: '100%',
                         margin: '0 auto',
                         borderRadius: "32px",
                         backgroundColor: "rgba(255, 255, 255, 0.7)",

@@ -161,8 +161,6 @@
 import { Box, Typography, Button, Container, Grid, Paper, Stack, useTheme, useMediaQuery } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import VerifiedIcon from '@mui/icons-material/Verified';
 
 import BookNowPopup from "./BookNowPopup";
@@ -193,7 +191,7 @@ export default function Hero() {
         minHeight: { xs: "auto", md: "90vh" },
         display: "flex",
         alignItems: "center",
-        pt: { xs: 8, md: 4 },
+        pt: { xs: 2, md: 4 },
         pb: { xs: 6, md: 4 },
         overflow: "hidden",
         background: "linear-gradient(180deg, #FFFFFF 0%, #fbf6f8 100%)",
@@ -224,10 +222,10 @@ export default function Hero() {
             >
               <Stack spacing={{ xs: 2, md: 3 }}>
                 <Box>
-                  <Typography variant="overline" sx={{ fontWeight: 800, letterSpacing: {xs: 1, md: 2}, color: "#C2185B", mb: {xs: 0.5, md: 1}, display: 'block' }}>
+                  <Typography variant="overline" sx={{ fontWeight: 800, letterSpacing: { xs: 1, md: 2 }, color: "#C2185B", mb: { xs: 0.5, md: 1 }, display: 'block' }}>
                     EXCELLENCE IN PAIN RELIEF
                   </Typography>
-                  <Typography variant="h1" sx={{ fontWeight: 900, mb: {xs: 1.5, md: 2}, fontSize: { xs: "2rem", md: "3.2rem" }, lineHeight: 1.1 }}>
+                  <Typography variant="h1" sx={{ fontWeight: 900, mb: { xs: 1.5, md: 2 }, fontSize: { xs: "2rem", md: "3.2rem" }, lineHeight: 1.1 }}>
                     <span style={{ color: "#0F1E5A" }}>Halcyon Pain</span> <br />
                     <span style={{ color: "#1CB5B0" }}>Management</span>
                   </Typography>
@@ -241,7 +239,7 @@ export default function Hero() {
                   </Typography>
                 </Box>
 
-                <Box sx={{ mb: {xs: 1, md: 3}, display: {xs: 'none', md: 'flex'}, alignItems: 'center', gap: 2, backgroundColor: 'rgba(255, 255, 255, 0.6)', p: 1.5, borderRadius: 3, width: 'fit-content', border: '1px solid rgba(15, 30, 90, 0.05)' }}>
+                <Box sx={{ mb: { xs: 1, md: 3 }, display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 2, backgroundColor: 'rgba(255, 255, 255, 0.6)', p: 1.5, borderRadius: 3, width: 'fit-content', border: '1px solid rgba(15, 30, 90, 0.05)' }}>
                   <Box>
                     <Typography sx={{ fontSize: "1.3rem", color: "#FFB400", lineHeight: 1 }}>⭐⭐⭐⭐⭐</Typography>
                   </Box>
@@ -251,32 +249,13 @@ export default function Hero() {
                   </Box>
                 </Box>
 
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  size="large"
-                  onClick={() => setOpenPopup(true)}
-                  sx={{
-                    alignSelf: { xs: 'flex-end', sm: 'flex-start' },
-                    py: {xs: 1.5, md: 2},
-                    px: {xs: 3, md: 4},
-                    mr: {xs: 2, sm: 0},
-                    fontSize: {xs: "1rem", md: "1.1rem"},
-                    fontWeight: 700,
-                    borderRadius: "100px",
-                    width: "fit-content",
-                    boxShadow: "0 20px 40px rgba(28, 181, 176, 0.2)"
-                  }}
-                >
-                  Book Your Consultation
-                </Button>
               </Stack>
             </motion.div>
           </Grid>
 
           {/* COLUMN 2: Specialists */}
-          <Grid item xs={12} md={4}>
-            <Box sx={{ position: "relative", textAlign: "center", maxWidth: { md: 380 }, mx: "auto" }}>
+          <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center', mt: { xs: 1, md: 0 } }}>
+            <Box sx={{ position: "relative", textAlign: "center", maxWidth: { xs: '95%', sm: 420, md: 380 }, mx: "auto", mr: { xs: 2, md: 'auto' }, width: '100%' }}>
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -288,70 +267,96 @@ export default function Hero() {
                 >
                   <Paper
                     elevation={0}
-                  sx={{
-                    position: "relative",
-                    borderRadius: "32px",
-                    overflow: "hidden",
-                    border: "6px solid #fff",
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
-                    backgroundColor: "#fff",
-                    zIndex: 1,
-
-                  }}
-                >
-                  <Box
-                    component="img"
-                    src="/images/bothTogether.webp"
-                    alt="Our Specialists"
                     sx={{
-                      width: "100%",
-                      height: { xs: 240, md: 320 },
-                      objectFit: "cover",
-                      objectPosition: "top center",
-                      display: "block",
-                      transform: "scale(1.02)",
+                      position: "relative",
+                      borderRadius: "32px",
+                      overflow: "hidden",
+                      border: "6px solid #fff",
+                      boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
+                      backgroundColor: "#fff",
+                      zIndex: 1,
+
                     }}
-                  />
-                </Paper>
+                  >
+                    <Box
+                      component="img"
+                      src="/images/bothTogether.webp"
+                      alt="Our Specialists"
+                      sx={{
+                        width: "100%",
+                        height: { xs: 400, sm: 380, md: 320 },
+                        objectFit: "cover",
+                        objectPosition: "top center",
+                        display: "block",
+                        transform: "scale(1.02)",
+                      }}
+                    />
+                  </Paper>
 
-                {/* Certified Experts Badge moved outside the image for better visibility */}
-                <Paper
-                  sx={{
-                    position: "absolute",
-                    top: -15,
-                    left: -70,
-                    backgroundColor: "#C2185B", // Logo Pink
-                    color: "#fff",
-                    p: "8px 16px",
-                    borderRadius: "12px",
-                    display: { xs: 'none', md: 'flex' },
-                    alignItems: "center",
-                    gap: 1,
-                    boxShadow: "0 10px 20px rgba(194, 24, 91, 0.2)",
-                    zIndex: 10,
-                  }}
-                >
-                  <Box sx={{
-                    width: 20,
-                    height: 20,
-                    borderRadius: "50%",
-                    backgroundColor: "#fff",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}>
-                    <VerifiedIcon sx={{ color: "#C2185B", fontSize: 14 }} />
-                  </Box>
-                  <Box sx={{ textAlign: "left" }}>
-                    <Typography variant="caption" sx={{ fontWeight: 800, display: "block", fontSize: "0.7rem" }}>Certified Experts</Typography>
-                    <Typography variant="caption" sx={{ opacity: 0.8, fontSize: "0.55rem" }}>World Institute of Pain</Typography>
-                  </Box>
-                </Paper>
 
-                <Box sx={{ mt: 2 }}>
-                  <Typography variant="h6" sx={{ fontWeight: 800, color: "primary.main" }}>Dr. Pallavi & Dr. Kiran</Typography>
-                  <Typography variant="caption" sx={{ color: "text.secondary", fontWeight: 600 }}>Senior Pain Management Specialists</Typography>
-                </Box>
+                  {/* Certified Experts Badge moved outside the image for better visibility */}
+                  <Paper
+                    sx={{
+                      position: "absolute",
+                      top: -15,
+                      left: -70,
+                      backgroundColor: "#C2185B", // Logo Pink
+                      color: "#fff",
+                      p: "8px 16px",
+                      borderRadius: "12px",
+                      display: { xs: 'none', md: 'flex' },
+                      alignItems: "center",
+                      gap: 1,
+                      boxShadow: "0 10px 20px rgba(194, 24, 91, 0.2)",
+                      zIndex: 10,
+                    }}
+                  >
+                    <Box sx={{
+                      width: 20,
+                      height: 20,
+                      borderRadius: "50%",
+                      backgroundColor: "#fff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}>
+                      <VerifiedIcon sx={{ color: "#C2185B", fontSize: 14 }} />
+                    </Box>
+                    <Box sx={{ textAlign: "left" }}>
+                      <Typography variant="caption" sx={{ fontWeight: 800, display: "block", fontSize: "0.7rem" }}>Certified Experts</Typography>
+                      <Typography variant="caption" sx={{ opacity: 0.8, fontSize: "0.55rem" }}>World Institute of Pain</Typography>
+                    </Box>
+                  </Paper>
+
+                  <Box sx={{ mt: 2, mb: 3 }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: "primary.main" }}>Dr. Pallavi & Dr. Kiran</Typography>
+                    <Typography variant="caption" sx={{ color: "text.secondary", fontWeight: 600 }}>Senior Pain Management Specialists</Typography>
+                  </Box>
+
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    size="large"
+                    onClick={() => setOpenPopup(true)}
+                    sx={{
+                      mx: "auto",
+                      display: { xs: 'flex', md: 'none' },
+                      py: { xs: 1.5, md: 2 },
+                      px: { xs: 3, md: 4 },
+                      fontSize: { xs: "0.9rem", md: "1rem" },
+                      fontWeight: 700,
+                      borderRadius: "100px",
+                      width: "fit-content",
+                      boxShadow: "0 20px 40px rgba(28, 181, 176, 0.2)",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 25px 50px rgba(28, 181, 176, 0.3)"
+                      }
+                    }}
+                  >
+                    Book Your Consultation
+                  </Button>
                 </motion.div>
               </motion.div>
             </Box>
@@ -364,7 +369,7 @@ export default function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Stack spacing={4} sx={{ pl: { md: 4 } }}>
+              <Stack spacing={4} sx={{ pl: { md: 4 }, ml: { xs: 3, md: 0 }, alignItems: { xs: 'center', md: 'flex-start' }, textAlign: { xs: 'center', md: 'left' } }}>
                 <Typography variant="h3" sx={{ color: "#C2185B", fontWeight: 800, lineHeight: 1.2 }}>
                   Your Path To <br />
                   Recovery Starts Here
@@ -376,6 +381,8 @@ export default function Hero() {
                     overflow: "hidden",
                     position: "relative",
                     height: 220,
+                    width: '100%',
+                    maxWidth: { xs: 450, md: '100%' },
                     boxShadow: "0 15px 30px rgba(0,0,0,0.08)",
                     border: "1px solid rgba(28, 181, 176, 0.1)"
                   }}
@@ -414,12 +421,12 @@ export default function Hero() {
                   </Box>
                 </Paper>
 
-                <Stack spacing={2}>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <Stack spacing={2} sx={{ width: '100%', alignItems: { xs: 'center', md: 'flex-start' } }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2, justifyContent: { xs: 'center', md: 'flex-start' } }}>
                     <Box sx={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "secondary.main" }} />
                     <Typography variant="body2" fontWeight={600}>Advanced Non-Surgical Procedures</Typography>
                   </Box>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2, justifyContent: { xs: 'center', md: 'flex-start' } }}>
                     <Box sx={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "secondary.main" }} />
                     <Typography variant="body2" fontWeight={600}>US-Certified Pain Specialists</Typography>
                   </Box>

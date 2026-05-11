@@ -56,7 +56,7 @@ function MilestoneCard({ item }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const count = useCounter(isInView ? item.endValue : 0);
-  
+
   return (
     <motion.div
       ref={ref}
@@ -68,8 +68,10 @@ function MilestoneCard({ item }) {
       <Paper
         elevation={0}
         sx={{
-          p: 3,
-          height: '100%',
+          p: 4,
+          height: { xs: 220, md: '100%' },
+          width: { xs: '90%', md: '100%' },
+          mx: 'auto',
           borderRadius: "32px",
           backgroundColor: "rgba(255, 255, 255, 0.7)",
           backdropFilter: "blur(10px)",
@@ -90,23 +92,23 @@ function MilestoneCard({ item }) {
           }
         }}
       >
-        <Box sx={{ 
-          position: 'absolute', 
-          top: 0, 
-          left: 0, 
-          right: 0, 
-          height: 5, 
+        <Box sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 5,
           background: `linear-gradient(90deg, ${item.accent}, #fff)`,
-          opacity: 0.8 
+          opacity: 0.8
         }} />
 
-        <Box sx={{ 
-          width: 48, 
-          height: 48, 
-          borderRadius: "16px", 
-          backgroundColor: `${item.accent}15`, 
-          display: "flex", 
-          alignItems: "center", 
+        <Box sx={{
+          width: 48,
+          height: 48,
+          borderRadius: "16px",
+          backgroundColor: `${item.accent}15`,
+          display: "flex",
+          alignItems: "center",
           justifyContent: "center",
           color: item.accent
         }}>
@@ -114,8 +116,8 @@ function MilestoneCard({ item }) {
         </Box>
 
         <Box>
-          <Typography variant="h3" sx={{ 
-            fontWeight: 900, 
+          <Typography variant="h3" sx={{
+            fontWeight: 900,
             color: "primary.main",
             fontSize: "2.2rem",
             lineHeight: 1,
@@ -230,9 +232,9 @@ export default function AboutPage() {
       <Box sx={{ background: "linear-gradient(180deg, #fbf6f8 0%, #FFFFFF 100%)", py: { xs: 8, md: 10 }, position: "relative", overflow: "hidden" }}>
         <Box sx={{ position: "absolute", inset: 0, opacity: 0.05, backgroundImage: `radial-gradient(#0F1E5A 0.5px, transparent 0.5px)`, backgroundSize: '24px 24px', zIndex: 0 }} />
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <Grid container spacing={3} justifyContent="center">
+          <Grid container spacing={4} justifyContent="center">
             {milestones.map((item, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
+              <Grid item size={{ xs: 12, sm: 6, md: 3 }} key={index}>
                 <MilestoneCard item={item} />
               </Grid>
             ))}
@@ -248,7 +250,7 @@ export default function AboutPage() {
       </Box>
 
       {/* ====== OUR VALUES ====== */}
-      <Box sx={{ background: "linear-gradient(180deg, #fbf6f8 0%, #FFFFFF 100%)", pt: 0, pb: { xs: 8, md: 12 } }}>
+      <Box sx={{ background: "linear-gradient(180deg, #fbf6f8 0%, #FFFFFF 100%)", pt: 0, pb: { xs: 8, md: 12 }, mt: 4 }}>
         <Container maxWidth="lg">
           <SectionHeader badge="OUR VALUES" badgeColor="#1CB5B0" title="What Drives" highlight="Us" highlightColor="#1CB5B0" subtitle="The four principles that guide every clinical decision, patient interaction, and treatment protocol at Halcyon." />
           <Grid container spacing={6} justifyContent="center" alignItems="stretch">
@@ -290,9 +292,9 @@ export default function AboutPage() {
       <Box sx={{ background: "linear-gradient(180deg, #FFFFFF 0%, #fbf6f8 100%)", py: { xs: 8, md: 12 } }}>
         <Container maxWidth="lg">
           <SectionHeader badge="EXPERTISE YOU CAN TRUST" badgeColor="#C2185B" title="Meet Our" highlight="Specialists" highlightColor="#C2185B" subtitle="Our US-certified experts bring decades of clinical excellence to provide the most advanced non-surgical pain management." />
-          <Grid container spacing={4} justifyContent="center" alignItems="stretch" sx={{ flexWrap: 'nowrap', overflowX: 'auto', pb: 2 }}>
+          <Grid container spacing={4} justifyContent="center" alignItems="stretch" sx={{ flexWrap: { xs: 'wrap', md: 'nowrap' }, overflowX: { xs: 'visible', md: 'auto' }, pb: 2 }}>
             {specialists.map((doc, index) => (
-              <Grid item xs={8} sm={6} md={4} key={doc.name} sx={{ display: 'flex', minWidth: { xs: '280px', md: '340px' }, maxWidth: '400px' }}>
+              <Grid item xs={12} sm={6} md={4} key={doc.name} sx={{ display: 'flex', minWidth: { xs: 'auto', md: '340px' }, maxWidth: { xs: '100%', md: '400px' } }}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -351,27 +353,27 @@ export default function AboutPage() {
       {/* ====== FAQs ====== */}
       <Box sx={{ background: "linear-gradient(180deg, #FFFFFF 0%, #fbf6f8 100%)", py: { xs: 12, md: 16 } }}>
         <Container maxWidth="lg">
-          <SectionHeader 
-            badge="EXPERT INSIGHTS" 
-            badgeColor="#1CB5B0" 
-            title="Expert" 
-            highlight="Insights" 
-            highlightColor="#1CB5B0" 
-            subtitle="Common questions about interventional pain management answered by our world-class clinical team." 
+          <SectionHeader
+            badge="EXPERT INSIGHTS"
+            badgeColor="#1CB5B0"
+            title="Expert"
+            highlight="Insights"
+            highlightColor="#1CB5B0"
+            subtitle="Common questions about interventional pain management answered by our world-class clinical team."
           />
-          
+
           <Box sx={{ maxWidth: 900, mx: 'auto' }}>
             {faqs.map((item, index) => (
-              <motion.div 
-                key={index} 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }} 
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
-                <Accordion 
+                <Accordion
                   sx={{
-                    mb: 3, 
+                    mb: 3,
                     borderRadius: "24px !important",
                     '&:before': { display: 'none' },
                     backgroundColor: "rgba(255,255,255,0.8)",
@@ -380,8 +382,8 @@ export default function AboutPage() {
                     boxShadow: '0 4px 20px rgba(0,0,0,0.02)',
                     transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                     overflow: 'hidden',
-                    '&.Mui-expanded': { 
-                      borderColor: "#1CB5B0", 
+                    '&.Mui-expanded': {
+                      borderColor: "#1CB5B0",
                       boxShadow: "0 20px 40px rgba(28, 181, 176, 0.08)",
                       transform: 'scale(1.01)'
                     },
@@ -393,37 +395,37 @@ export default function AboutPage() {
                 >
                   <AccordionSummary
                     expandIcon={
-                      <Box sx={{ 
-                        width: 32, height: 32, borderRadius: '50%', backgroundColor: 'rgba(28, 181, 176, 0.1)', 
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', transition: '0.3s' 
+                      <Box sx={{
+                        width: 32, height: 32, borderRadius: '50%', backgroundColor: 'rgba(28, 181, 176, 0.1)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', transition: '0.3s'
                       }}>
                         <ExpandMoreIcon sx={{ color: "#1CB5B0", fontSize: 20 }} />
                       </Box>
                     }
-                    sx={{ 
-                      px: { xs: 3, md: 5 }, 
+                    sx={{
+                      px: { xs: 3, md: 5 },
                       py: 2,
                       '& .MuiAccordionSummary-content': { alignItems: 'center' }
                     }}
                   >
                     <Stack direction="row" spacing={3} alignItems="center">
-                      <Typography 
-                        variant="h6" 
-                        sx={{ 
-                          fontWeight: 900, 
-                          color: "#1CB5B0", 
-                          fontSize: "0.9rem", 
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          fontWeight: 900,
+                          color: "#1CB5B0",
+                          fontSize: "0.9rem",
                           opacity: 0.5,
                           fontFamily: 'monospace'
                         }}
                       >
                         {String(index + 1).padStart(2, '0')}
                       </Typography>
-                      <Typography 
-                        variant="h6" 
-                        sx={{ 
-                          fontWeight: 800, 
-                          color: "primary.main", 
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          fontWeight: 800,
+                          color: "primary.main",
                           fontSize: { xs: "1rem", md: "1.15rem" },
                           lineHeight: 1.4
                         }}
@@ -434,12 +436,12 @@ export default function AboutPage() {
                   </AccordionSummary>
                   <AccordionDetails sx={{ px: { xs: 3, md: 5 }, pb: 4, pt: 0, pl: { xs: 3, md: 10 } }}>
                     <Box sx={{ borderLeft: '2px solid rgba(28, 181, 176, 0.2)', pl: 3 }}>
-                      <Typography 
-                        variant="body1" 
-                        color="text.secondary" 
-                        sx={{ 
-                          lineHeight: 1.9, 
-                          fontWeight: 500, 
+                      <Typography
+                        variant="body1"
+                        color="text.secondary"
+                        sx={{
+                          lineHeight: 1.9,
+                          fontWeight: 500,
                           fontSize: "1.05rem",
                           color: "text.primary",
                           opacity: 0.8
